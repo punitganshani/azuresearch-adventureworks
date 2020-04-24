@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "d3b3e634-d4c5-422a-936a-07aa8544ec13",
+		"name": "AdventureWorks Search",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "QueryDocs - Empty search, get doc count (*)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=sleeve&api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "sleeve"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - Empty search, get doc count (*)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=sleeve&api-version=2019-05-06&$count=true",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "sleeve"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - Prefix search (slee*)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=slee*&api-version=2019-05-06&$count=true&queryType=simple",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "slee*"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specify search fields",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=road&api-version=2019-05-06&$count=true&queryType=simple&searchFields=Name",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "road"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						},
+						{
+							"key": "searchFields",
+							"value": "Name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specific search fields + AND",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=road +black&api-version=2019-05-06&$count=true&queryType=simple",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "road +black"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specific search fields + top, skip",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=road&api-version=2019-05-06&$count=true&queryType=simple&$top=10&$skip=10",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "road"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						},
+						{
+							"key": "$top",
+							"value": "10"
+						},
+						{
+							"key": "$skip",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specific search fields + filter",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=road +black&api-version=2019-05-06&$count=true&queryType=simple&$filter=Culture eq 'zh-cht'",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "road +black"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						},
+						{
+							"key": "$filter",
+							"value": "Culture eq 'zh-cht'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specific search fields + filter + facet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=road +black&api-version=2019-05-06&$count=true&queryType=simple&$filter=Culture eq 'zh-cht'&facet=ProductModel",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "road +black"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						},
+						{
+							"key": "$filter",
+							"value": "Culture eq 'zh-cht'"
+						},
+						{
+							"key": "facet",
+							"value": "ProductModel"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specific search fields + scoringProfile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=road +black&api-version=2019-05-06&scoringProfile=Description&$top=5",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "road +black"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "scoringProfile",
+							"value": "Description"
+						},
+						{
+							"key": "$top",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specific search fields + suggestions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?autocomplete?search=road +b&api-version=2019-05-06&suggesterName=autosuggest",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "autocomplete?search",
+							"value": "road +b"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "suggesterName",
+							"value": "autosuggest"
+						},
+						{
+							"key": "searchFields",
+							"value": "Name, Description",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "QueryDocs - specify search fields highlight",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{api-admin-key}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/adw-products/docs?search=Alluminum&api-version=2019-05-06&$count=true&queryType=simple&searchFields=Name, Description&highlightPreTag=</b>&highlightPostTag=</b>&highlight=Description, Name",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"adw-products",
+						"docs"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "Alluminum"
+						},
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						},
+						{
+							"key": "$count",
+							"value": "true"
+						},
+						{
+							"key": "queryType",
+							"value": "simple"
+						},
+						{
+							"key": "searchFields",
+							"value": "Name, Description"
+						},
+						{
+							"key": "highlightPreTag",
+							"value": "</b>"
+						},
+						{
+							"key": "highlightPostTag",
+							"value": "</b>"
+						},
+						{
+							"key": "highlight",
+							"value": "Description, Name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Index",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"type": "text",
+						"value": "{{admin-key}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{index-name}}\",\r\n    \"fields\": [\r\n        { \"name\": \"address\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"categories\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"city\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"country\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"latitude\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"longitude\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"name\", \"type\": \"Edm.String\", \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"postalCode\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"province\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"reviews_date\", \"type\": \"Edm.DateTimeOffset\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"reviews_dateAdded\", \"type\": \"Edm.DateTimeOffset\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"reviews_rating\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"reviews_text\", \"type\": \"Edm.String\", \"filterable\": false,  \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"reviews_title\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"reviews_username\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"AzureSearch_DocumentKey\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false, \"key\": true },\r\n        { \"name\": \"metadata_storage_content_type\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"metadata_storage_size\", \"type\": \"Edm.Int64\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false},\r\n        { \"name\": \"metadata_storage_last_modified\", \"type\": \"Edm.DateTimeOffset\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"metadata_storage_name\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"metadata_storage_path\", \"type\": \"Edm.String\", \"searchable\": false, \"filterable\": false, \"sortable\": false, \"facetable\": false },\r\n        { \"name\": \"Sentiment\", \"type\": \"Collection(Edm.Double)\", \"searchable\": false, \"filterable\": true, \"retrievable\": true, \"sortable\": false, \"facetable\": true },\r\n        { \"name\": \"Language\", \"type\": \"Edm.String\", \"filterable\": true, \"sortable\": false, \"facetable\": true },\r\n        { \"name\": \"Keyphrases\", \"type\": \"Collection(Edm.String)\", \"filterable\": true, \"sortable\": false, \"facetable\": true }\r\n    ]\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexes",
+						"{{index-name}}"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{api-version}}"
+						}
+					]
+				},
+				"description": "Creates an Azure Search Index appropriate for hotel reviews and knowledgestore\t"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Datasource",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{admin-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \n    \"name\": \"adw-sql\",\n    \"type\": \"azuresql\",\n    \"credentials\": {\n        \"connectionString\": \"{{sql-connectionString}}\"\n    },\n    \"container\": {\n    \t\"name\": \"[SalesLT].[vProductAndDescription]\",\n    \t\"query\": null\n\t},\n    \"dataChangeDetectionPolicy\": {\n    \t\"@odata.type\": \"#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy\",\n\t    \"highWaterMarkColumnName\": \"ModifiedDate\"\n\t},\n\t\"dataDeletionDetectionPolicy\": null\n}"
+				},
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/datasources?api-version={{api-version}}",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"datasources"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "{{api-version}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create the Indexer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{api-admin-key}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"adw-products-indexer\",\r\n  \"description\": \"\",\r\n  \"dataSourceName\": \"adw-sql\",\r\n  \"skillsetName\": null,\r\n  \"targetIndexName\": \"adw-products\",\r\n  \"disabled\": null,\r\n  \"schedule\": {\r\n    \"interval\": \"PT1H\",\r\n    \"startTime\": \"0001-01-01T00:00:00Z\"\r\n  },\r\n  \"parameters\": {\r\n    \"batchSize\": null,\r\n    \"maxFailedItems\": 0,\r\n    \"maxFailedItemsPerBatch\": 0,\r\n    \"base64EncodeKeys\": false,\r\n    \"configuration\": {}\r\n  },\r\n  \"fieldMappings\": [],\r\n  \"outputFieldMappings\": []\r\n}"
+				},
+				"url": {
+					"raw": "https://{{service-name}}.search.windows.net/indexers/adw-products-indexer?api-version=2019-05-06",
+					"protocol": "https",
+					"host": [
+						"{{service-name}}",
+						"search",
+						"windows",
+						"net"
+					],
+					"path": [
+						"indexers",
+						"adw-products-indexer"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2019-05-06"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3d83ea13-6d00-4e08-b2f7-f291f5d38b03",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "776ea21e-b6ec-4d58-87f3-0a094afb0623",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "2872580b-48e9-473b-b8a1-690bffb7d476",
+			"key": "service-name",
+			"value": "gabsearch",
+			"type": "string"
+		},
+		{
+			"id": "f7ce3255-16be-46f1-ac7d-09b39529bb57",
+			"key": "api-admin-key",
+			"value": "api-admin-key",
+			"type": "string"
+		},
+		{
+			"id": "64f0b226-ad72-4d68-8112-c925d0e2e853",
+			"key": "sql-connectionString",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "a7c2130a-5716-417a-9ba6-2d922a731eea",
+			"key": "dbName",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	],
+	"protocolProfileBehavior": {}
+}
